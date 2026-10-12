@@ -44,6 +44,9 @@ solide pour etre teste avec une premiere organisation.
 
 ## 5. Roles utilisateurs
 
+Diagramme UML associe:
+[docs/uml/use-cases.puml](uml/use-cases.puml)
+
 ### Employe
 
 L'employe signale les problemes et suit l'avancement de ses demandes.
@@ -90,6 +93,9 @@ Fonctionnalites:
 
 ## 6. Statuts d'une demande
 
+Diagramme UML associe:
+[docs/uml/request-state-diagram.puml](uml/request-state-diagram.puml)
+
 Les demandes passent par les statuts suivants:
 
 1. Nouvelle
@@ -118,6 +124,9 @@ Priorites disponibles pour le MVP:
 Le gestionnaire peut modifier la priorite apres creation.
 
 ## 8. Donnees principales
+
+Diagramme UML associe:
+[docs/uml/domain-class-diagram.puml](uml/domain-class-diagram.puml)
 
 ### Organisation
 

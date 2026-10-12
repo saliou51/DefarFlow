@@ -6,23 +6,13 @@
 - Gestionnaire
 - Technicien
 
-## Diagramme textuel
+## Diagramme UML
 
-```text
-                         DefarFlow
-                             |
-        +--------------------+--------------------+
-        |                    |                    |
-     Employe            Gestionnaire          Technicien
-        |                    |                    |
-        |                    |                    |
-  Creer demande       Voir demandes        Voir taches assignees
-  Ajouter photo       Filtrer demandes     Demarrer intervention
-  Voir mes demandes   Modifier priorite    Ajouter commentaire
-  Voir statut         Assigner technicien  Terminer intervention
-                       Fermer demande
-                       Voir dashboard
-```
+Source PlantUML: [docs/uml/use-cases.puml](uml/use-cases.puml)
+
+Version SVG generee: [docs/uml/rendered/use-cases.svg](uml/rendered/use-cases.svg)
+
+![Diagramme de cas d'utilisation](uml/rendered/use-cases.svg)
 
 ## UC-01 - Connexion
 

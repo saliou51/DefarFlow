@@ -1,0 +1,57 @@
+@startuml
+title DefarFlow v0.1 - Diagramme de cas d'utilisation
+
+left to right direction
+
+actor "Employe" as Employe
+actor "Gestionnaire" as Gestionnaire
+actor "Technicien" as Technicien
+
+rectangle "DefarFlow" {
+  usecase "Se connecter" as UC_Login
+
+  usecase "Creer une demande" as UC_CreateRequest
+  usecase "Ajouter une photo" as UC_AddPhoto
+  usecase "Voir mes demandes" as UC_ViewOwnRequests
+  usecase "Voir le statut" as UC_ViewStatus
+
+  usecase "Voir toutes les demandes" as UC_ViewAllRequests
+  usecase "Filtrer les demandes" as UC_FilterRequests
+  usecase "Modifier la priorite" as UC_UpdatePriority
+  usecase "Assigner un technicien" as UC_AssignTechnician
+  usecase "Fermer une demande" as UC_CloseRequest
+  usecase "Voir le dashboard" as UC_ViewDashboard
+
+  usecase "Voir les demandes assignees" as UC_ViewAssignedRequests
+  usecase "Demarrer une intervention" as UC_StartIntervention
+  usecase "Ajouter un commentaire" as UC_AddComment
+  usecase "Terminer une intervention" as UC_EndIntervention
+}
+
+Employe --> UC_Login
+Employe --> UC_CreateRequest
+Employe --> UC_AddPhoto
+Employe --> UC_ViewOwnRequests
+Employe --> UC_ViewStatus
+
+Gestionnaire --> UC_Login
+Gestionnaire --> UC_ViewAllRequests
+Gestionnaire --> UC_FilterRequests
+Gestionnaire --> UC_UpdatePriority
+Gestionnaire --> UC_AssignTechnician
+Gestionnaire --> UC_CloseRequest
+Gestionnaire --> UC_ViewDashboard
+
+Technicien --> UC_Login
+Technicien --> UC_ViewAssignedRequests
+Technicien --> UC_StartIntervention
+Technicien --> UC_AddComment
+Technicien --> UC_EndIntervention
+
+UC_CreateRequest .> UC_AddPhoto : <<extend>>
+UC_AssignTechnician .> UC_ViewAllRequests : <<include>>
+UC_CloseRequest .> UC_ViewAllRequests : <<include>>
+UC_StartIntervention .> UC_ViewAssignedRequests : <<include>>
+UC_EndIntervention .> UC_AddComment : <<include>>
+
+@enduml

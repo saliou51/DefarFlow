@@ -9,6 +9,14 @@
 - liste des endpoints API
 - maquettes simples des ecrans
 
+Diagrammes UML de reference:
+
+- [Architecture](uml/architecture.puml)
+- [Cas d'utilisation](uml/use-cases.puml)
+- [Diagramme de classes](uml/domain-class-diagram.puml)
+- [Cycle de vie d'une demande](uml/request-state-diagram.puml)
+- [Sequence de traitement d'une demande](uml/request-sequence.puml)
+
 ## Phase 2 - Backend Django
 
 - creer le projet Django

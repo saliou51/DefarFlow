@@ -1,0 +1,52 @@
+@startuml
+title DefarFlow v0.1 - Sequence de traitement d'une demande
+
+actor Employe
+actor Gestionnaire
+actor Technicien
+
+participant "Interface Web" as Web
+participant "API DefarFlow" as API
+database "Base de donnees" as DB
+
+Employe -> Web : saisir demande
+Web -> API : POST /demandes
+API -> DB : enregistrer demande
+DB --> API : demande creee
+API --> Web : statut NOUVELLE
+Web --> Employe : confirmation
+
+Gestionnaire -> Web : ouvrir demandes
+Web -> API : GET /demandes
+API -> DB : rechercher demandes
+DB --> API : liste demandes
+API --> Web : demandes
+
+Gestionnaire -> Web : assigner technicien
+Web -> API : PATCH /demandes/{id}/assignation
+API -> DB : mettre a jour assignation
+API -> DB : statut = ASSIGNEE
+DB --> API : demande mise a jour
+API --> Web : demande assignee
+
+Technicien -> Web : demarrer intervention
+Web -> API : POST /demandes/{id}/intervention/demarrer
+API -> DB : creer intervention
+API -> DB : statut = EN_COURS
+DB --> API : intervention creee
+API --> Web : intervention en cours
+
+Technicien -> Web : terminer intervention
+Web -> API : PATCH /interventions/{id}/terminer
+API -> DB : enregistrer commentaire
+API -> DB : statut = TERMINEE
+DB --> API : intervention terminee
+API --> Web : demande terminee
+
+Gestionnaire -> Web : fermer demande
+Web -> API : PATCH /demandes/{id}/fermer
+API -> DB : statut = FERMEE
+DB --> API : demande fermee
+API --> Web : confirmation
+
+@enduml

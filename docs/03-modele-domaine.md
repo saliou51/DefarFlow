@@ -1,34 +1,18 @@
 # DefarFlow v0.1 - Modele de domaine
 
-## Entites principales
+## Diagramme UML
 
-```text
-Organisation
-  1 --- * Utilisateur
-  1 --- * Batiment
-  1 --- * DemandeMaintenance
+Source PlantUML: [docs/uml/domain-class-diagram.puml](uml/domain-class-diagram.puml)
 
-Batiment
-  1 --- * Local
+Version SVG generee:
+[docs/uml/rendered/domain-class-diagram.svg](uml/rendered/domain-class-diagram.svg)
 
-Local
-  1 --- * DemandeMaintenance
+![Diagramme de classes du domaine](uml/rendered/domain-class-diagram.svg)
 
-Utilisateur
-  role: EMPLOYE | GESTIONNAIRE | TECHNICIEN
+Le cycle de vie d'une demande est modelise dans:
+[docs/uml/request-state-diagram.puml](uml/request-state-diagram.puml)
 
-DemandeMaintenance
-  * --- 1 Organisation
-  * --- 1 Local
-  * --- 1 Utilisateur (cree_par)
-  * --- 0..1 Utilisateur (assignee_a)
-  1 --- * PieceJointe
-  1 --- 0..1 Intervention
-
-Intervention
-  * --- 1 DemandeMaintenance
-  * --- 1 Utilisateur (technicien)
-```
+![Cycle de vie d'une demande](uml/rendered/request-state-diagram.svg)
 
 ## Choix de conception pour le MVP
 

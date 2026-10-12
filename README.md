@@ -20,6 +20,30 @@ Permettre a une organisation de:
 - [Modele de domaine](docs/03-modele-domaine.md)
 - [Roadmap](docs/04-roadmap.md)
 
+## Diagrammes UML
+
+Les diagrammes sont ecrits en PlantUML dans [docs/uml](docs/uml).
+
+- [Architecture](docs/uml/architecture.puml)
+- [Cas d'utilisation](docs/uml/use-cases.puml)
+- [Diagramme de classes](docs/uml/domain-class-diagram.puml)
+- [Cycle de vie d'une demande](docs/uml/request-state-diagram.puml)
+- [Sequence de traitement d'une demande](docs/uml/request-sequence.puml)
+
+Rendus SVG:
+
+- [Architecture](docs/uml/rendered/architecture.svg)
+- [Cas d'utilisation](docs/uml/rendered/use-cases.svg)
+- [Diagramme de classes](docs/uml/rendered/domain-class-diagram.svg)
+- [Cycle de vie d'une demande](docs/uml/rendered/request-state-diagram.svg)
+- [Sequence de traitement d'une demande](docs/uml/rendered/request-sequence.svg)
+
+Pour generer et verifier les diagrammes:
+
+```bash
+npm run uml:check
+```
+
 ## Stack prevue
 
 - Backend: Django + Django REST Framework

@@ -1,0 +1,100 @@
+@startuml
+title DefarFlow v0.1 - Diagramme de classes du domaine
+
+skinparam classAttributeIconSize 0
+
+enum RoleUtilisateur {
+  EMPLOYE
+  GESTIONNAIRE
+  TECHNICIEN
+}
+
+enum StatutDemande {
+  NOUVELLE
+  ASSIGNEE
+  EN_COURS
+  TERMINEE
+  FERMEE
+}
+
+enum PrioriteDemande {
+  BASSE
+  NORMALE
+  HAUTE
+  URGENTE
+}
+
+class Organisation {
+  +id: UUID
+  +nom: String
+  +adresse: String
+  +plan: String
+  +dateCreation: DateTime
+}
+
+class Utilisateur {
+  +id: UUID
+  +nom: String
+  +email: String
+  +motDePasse: String
+  +role: RoleUtilisateur
+  +actif: Boolean
+}
+
+class Batiment {
+  +id: UUID
+  +nom: String
+  +adresse: String
+}
+
+class Local {
+  +id: UUID
+  +nom: String
+  +etage: String
+  +description: Text
+}
+
+class DemandeMaintenance {
+  +id: UUID
+  +titre: String
+  +description: Text
+  +priorite: PrioriteDemande
+  +statut: StatutDemande
+  +dateCreation: DateTime
+  +dateFermeture: DateTime
+}
+
+class Intervention {
+  +id: UUID
+  +commentaire: Text
+  +dateDebut: DateTime
+  +dateFin: DateTime
+  +cout: Decimal
+}
+
+class PieceJointe {
+  +id: UUID
+  +fichier: File
+  +type: String
+  +dateAjout: DateTime
+}
+
+Organisation "1" o-- "0..*" Utilisateur : utilisateurs
+Organisation "1" o-- "0..*" Batiment : batiments
+Organisation "1" o-- "0..*" DemandeMaintenance : demandes
+
+Batiment "1" o-- "0..*" Local : locaux
+
+Local "1" -- "0..*" DemandeMaintenance : demandes
+Utilisateur "1" -- "0..*" DemandeMaintenance : cree_par
+Utilisateur "0..1" -- "0..*" DemandeMaintenance : assignee_a
+
+DemandeMaintenance "1" o-- "0..*" PieceJointe : pieces_jointes
+DemandeMaintenance "1" o-- "0..1" Intervention : intervention
+Utilisateur "1" -- "0..*" Intervention : technicien
+
+Utilisateur --> RoleUtilisateur
+DemandeMaintenance --> StatutDemande
+DemandeMaintenance --> PrioriteDemande
+
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+title DefarFlow v0.1 - Architecture cible
+
+skinparam componentStyle rectangle
+
+actor "Utilisateur" as User
+
+component "Frontend React" as React {
+  [Pages]
+  [Formulaires]
+  [Tableaux de bord]
+}
+
+component "Backend Django REST API" as Django {
+  [Authentification]
+  [Organisations]
+  [Demandes]
+  [Interventions]
+  [Notifications]
+}
+
+database "PostgreSQL" as Postgres
+cloud "Stockage fichiers" as Storage
+cloud "Email" as Email
+
+User --> React : navigateur web
+React --> Django : HTTPS / JSON
+Django --> Postgres : ORM Django
+Django --> Storage : photos
+Django --> Email : notifications
+
+@enduml

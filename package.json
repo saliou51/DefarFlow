@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "uml:generate": "mkdir -p docs/uml/rendered && for file in docs/uml/*.puml; do npx -y node-plantuml generate -s \"$file\" -o \"docs/uml/rendered/$(basename \"$file\" .puml).svg\"; done",
+    "uml:check": "npm run uml:generate"
+  },
+  "devDependencies": {}
+}

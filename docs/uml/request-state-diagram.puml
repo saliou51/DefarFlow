@@ -1,0 +1,23 @@
+@startuml
+title DefarFlow v0.1 - Cycle de vie d'une demande
+
+[*] --> Nouvelle : creation
+
+Nouvelle --> Assignee : assigner technicien
+Assignee --> EnCours : demarrer intervention
+EnCours --> Terminee : terminer intervention
+Terminee --> Fermee : fermer demande
+
+Assignee --> Nouvelle : retirer assignation
+EnCours --> Assignee : suspendre intervention
+Terminee --> EnCours : rouvrir intervention
+
+Fermee --> [*]
+
+state Nouvelle
+state Assignee
+state "En cours" as EnCours
+state Terminee
+state Fermee
+
+@enduml
