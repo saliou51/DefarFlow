@@ -14,6 +14,7 @@ Diagrammes UML de reference:
 - [Architecture](uml/architecture.puml)
 - [Cas d'utilisation](uml/use-cases.puml)
 - [Diagramme de classes](uml/domain-class-diagram.puml)
+- [Diagramme de conception des services](uml/service-class-diagram.puml)
 - [Cycle de vie d'une demande](uml/request-state-diagram.puml)
 - [Sequence de traitement d'une demande](uml/request-sequence.puml)
 

@@ -14,6 +14,12 @@ Le cycle de vie d'une demande est modelise dans:
 
 ![Cycle de vie d'une demande](uml/rendered/request-state-diagram.svg)
 
+Le diagramme de conception des services, avec classes abstraites et interfaces,
+est separe du modele de domaine:
+[docs/uml/service-class-diagram.puml](uml/service-class-diagram.puml)
+
+![Diagramme de conception des services](uml/rendered/service-class-diagram.svg)
+
 ## Choix de conception pour le MVP
 
 Pour le backend Django, on utilisera probablement un seul modele `User` avec un
@@ -29,6 +35,24 @@ Raison:
 
 Les concepts `Employe`, `Gestionnaire` et `Technicien` resteront des roles
 metier. On pourra les representer dans les services, permissions et interfaces.
+
+## Interfaces et classes abstraites
+
+Les interfaces ne sont pas placees directement dans le diagramme de domaine,
+car elles representent surtout des contrats techniques ou applicatifs.
+
+Dans DefarFlow v0.1, elles sont modelisees dans le diagramme de conception des
+services:
+
+- `NotificationService`
+- `DemandeRepository`
+- `InterventionRepository`
+- `PermissionPolicy`
+
+Les classes abstraites initiales sont:
+
+- `BaseEntity`, pour factoriser les champs communs des entites
+- `ApplicationService`, pour factoriser les dependances communes des services
 
 ## Enums
 

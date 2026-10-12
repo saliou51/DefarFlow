@@ -27,6 +27,7 @@ Les diagrammes sont ecrits en PlantUML dans [docs/uml](docs/uml).
 - [Architecture](docs/uml/architecture.puml)
 - [Cas d'utilisation](docs/uml/use-cases.puml)
 - [Diagramme de classes](docs/uml/domain-class-diagram.puml)
+- [Diagramme de conception des services](docs/uml/service-class-diagram.puml)
 - [Cycle de vie d'une demande](docs/uml/request-state-diagram.puml)
 - [Sequence de traitement d'une demande](docs/uml/request-sequence.puml)
 
@@ -35,6 +36,7 @@ Rendus SVG:
 - [Architecture](docs/uml/rendered/architecture.svg)
 - [Cas d'utilisation](docs/uml/rendered/use-cases.svg)
 - [Diagramme de classes](docs/uml/rendered/domain-class-diagram.svg)
+- [Diagramme de conception des services](docs/uml/rendered/service-class-diagram.svg)
 - [Cycle de vie d'une demande](docs/uml/rendered/request-state-diagram.svg)
 - [Sequence de traitement d'une demande](docs/uml/rendered/request-sequence.svg)
 

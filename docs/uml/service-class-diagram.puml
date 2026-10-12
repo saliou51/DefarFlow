@@ -1,0 +1,97 @@
+@startuml
+title DefarFlow v0.1 - Diagramme de conception des services
+
+skinparam classAttributeIconSize 0
+
+abstract class BaseEntity {
+  +id: UUID
+  +createdAt: DateTime
+  +updatedAt: DateTime
+}
+
+class Organisation
+class Utilisateur
+class DemandeMaintenance
+class Intervention
+class Notification
+
+BaseEntity <|-- Organisation
+BaseEntity <|-- Utilisateur
+BaseEntity <|-- DemandeMaintenance
+BaseEntity <|-- Intervention
+BaseEntity <|-- Notification
+
+interface NotificationService {
+  +envoyer(notification: Notification): void
+}
+
+class EmailNotificationService {
+  +envoyer(notification: Notification): void
+}
+
+class SmsNotificationService {
+  +envoyer(notification: Notification): void
+}
+
+NotificationService <|.. EmailNotificationService
+NotificationService <|.. SmsNotificationService
+
+interface DemandeRepository {
+  +save(demande: DemandeMaintenance): DemandeMaintenance
+  +findById(id: UUID): DemandeMaintenance
+  +findByOrganisation(organisationId: UUID): List<DemandeMaintenance>
+}
+
+interface InterventionRepository {
+  +save(intervention: Intervention): Intervention
+  +findByDemande(demandeId: UUID): Intervention
+}
+
+interface PermissionPolicy {
+  +peutVoirDemande(utilisateur: Utilisateur, demande: DemandeMaintenance): Boolean
+  +peutAssignerDemande(utilisateur: Utilisateur): Boolean
+  +peutFermerDemande(utilisateur: Utilisateur): Boolean
+}
+
+class RoleBasedPermissionPolicy {
+  +peutVoirDemande(utilisateur: Utilisateur, demande: DemandeMaintenance): Boolean
+  +peutAssignerDemande(utilisateur: Utilisateur): Boolean
+  +peutFermerDemande(utilisateur: Utilisateur): Boolean
+}
+
+PermissionPolicy <|.. RoleBasedPermissionPolicy
+
+abstract class ApplicationService {
+  #permissionPolicy: PermissionPolicy
+}
+
+class DemandeService {
+  -demandeRepository: DemandeRepository
+  -notificationService: NotificationService
+  +creerDemande(demande: DemandeMaintenance): DemandeMaintenance
+  +assignerTechnicien(demandeId: UUID, technicienId: UUID): DemandeMaintenance
+  +fermerDemande(demandeId: UUID): DemandeMaintenance
+}
+
+class InterventionService {
+  -demandeRepository: DemandeRepository
+  -interventionRepository: InterventionRepository
+  +demarrerIntervention(demandeId: UUID, technicienId: UUID): Intervention
+  +terminerIntervention(interventionId: UUID, commentaire: String): Intervention
+}
+
+ApplicationService <|-- DemandeService
+ApplicationService <|-- InterventionService
+
+DemandeService --> DemandeRepository
+DemandeService --> NotificationService
+DemandeService --> PermissionPolicy
+InterventionService --> DemandeRepository
+InterventionService --> InterventionRepository
+InterventionService --> PermissionPolicy
+
+DemandeService ..> DemandeMaintenance
+InterventionService ..> Intervention
+NotificationService ..> Notification
+
+@enduml
