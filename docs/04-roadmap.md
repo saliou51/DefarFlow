@@ -1,0 +1,58 @@
+# DefarFlow - Roadmap initiale
+
+## Phase 1 - Conception v0.1
+
+- cahier des charges fonctionnel
+- cas d'utilisation
+- modele de domaine
+- schema de base de donnees
+- liste des endpoints API
+- maquettes simples des ecrans
+
+## Phase 2 - Backend Django
+
+- creer le projet Django
+- configurer Django REST Framework
+- configurer PostgreSQL
+- creer le modele utilisateur
+- creer organisations, batiments et locaux
+- creer demandes et interventions
+- ajouter permissions par role
+- ajouter tests backend
+
+## Phase 3 - Frontend React
+
+- creer le projet React
+- pages de connexion
+- layout principal
+- liste des demandes
+- detail demande
+- formulaire de creation
+- vues gestionnaire
+- vues technicien
+- dashboard simple
+
+## Phase 4 - Produit testable
+
+- upload de photos
+- filtres
+- responsive mobile
+- QR code par local
+- notifications email simples
+- deploiement de test
+
+## Phase 5 - Validation terrain
+
+- trouver une premiere organisation pilote
+- observer leur processus actuel
+- faire tester gratuitement pendant un mois
+- noter les blocages reels
+- ameliorer uniquement ce qui aide l'usage reel
+
+## Phase 6 - Monétisation
+
+- definir les limites des plans
+- ajouter Stripe
+- creer une page de facturation
+- tester un prix Starter / Pro / Business
+
