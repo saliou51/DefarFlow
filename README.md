@@ -1,7 +1,7 @@
 # DefarFlow
 
 DefarFlow est une application web SaaS de gestion des demandes de maintenance et
-des interventions, pensee d'abord pour les petites organisations au Senegal.
+des interventions, pensee d'abord pour les petites et moyennes organisations.
 
 ## Objectif
 

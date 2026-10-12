@@ -9,7 +9,7 @@ historique clair des interventions.
 
 ## 2. Cible
 
-DefarFlow vise d'abord les petites et moyennes organisations au Senegal:
+DefarFlow vise d'abord les petites et moyennes organisations:
 
 - residences et immeubles
 - restaurants et commerces
