@@ -1,212 +1,146 @@
-# DefarFlow v0.1 - Cahier des charges fonctionnel
+# DefarFlow v0.1 - Functional Scope
 
-## 1. Vision
+## Product Positioning
 
-DefarFlow est une application web SaaS de gestion des demandes de maintenance.
-Elle permet a une organisation de centraliser les problemes signales, de les
-assigner a des techniciens, de suivre leur progression et de conserver un
-historique clair des interventions.
+DefarFlow centralizes maintenance requests for organizations that currently rely
+on calls, messaging apps, spreadsheets, or paper forms to track issues.
 
-## 2. Cible
+The product is intentionally narrow in v0.1: request intake, assignment,
+intervention tracking, and closure.
 
-DefarFlow vise d'abord les petites et moyennes organisations:
+## Target Users
 
-- residences et immeubles
-- restaurants et commerces
-- cliniques et cabinets medicaux
-- ecoles et universites
-- petites administrations
-- entreprises avec locaux ou equipements a maintenir
+DefarFlow is designed for organizations with shared spaces, equipment, or
+facilities to maintain:
 
-## 3. Probleme a resoudre
+- residential buildings
+- restaurants and shops
+- clinics and offices
+- schools
+- small administrations
+- companies with managed premises
 
-Beaucoup d'organisations gerent encore les problemes de maintenance par appels,
-WhatsApp, papier ou discussions informelles. Cela cree plusieurs difficultes:
+## Problem
 
-- demandes oubliees
-- absence de suivi clair
-- priorites mal definies
-- techniciens mal informes
-- historique difficile a retrouver
-- manque de statistiques pour les responsables
+Maintenance work is often difficult to track when requests are spread across
+informal channels. Common failures:
 
-DefarFlow doit rendre ce processus simple, visible et mesurable.
+- requests are forgotten
+- priorities are unclear
+- technicians receive incomplete information
+- managers lack visibility
+- intervention history is hard to retrieve
 
-## 4. Objectif du MVP
+## v0.1 Goal
 
-La version 0.1 doit repondre a une question simple:
+The first release is successful when an organization can create, assign, process,
+and close a maintenance request without using an external tracking process.
 
-> Une vraie organisation peut-elle utiliser DefarFlow pour creer, assigner,
-> suivre et fermer une demande de maintenance?
+## Roles
 
-Le MVP ne cherche pas encore a couvrir tous les besoins. Il doit etre assez
-solide pour etre teste avec une premiere organisation.
+UML source: [docs/uml/use-cases.puml](uml/use-cases.puml)
 
-## 5. Roles utilisateurs
+### Employee
 
-Diagramme UML associe:
-[docs/uml/use-cases.puml](uml/use-cases.puml)
+Creates maintenance requests and follows their progress.
 
-### Employe
+Responsibilities:
 
-L'employe signale les problemes et suit l'avancement de ses demandes.
+- create a request
+- select a location
+- provide title, description, priority, and optional photo
+- view own requests
+- track request status
 
-Fonctionnalites:
+### Manager
 
-- se connecter
-- creer une demande de maintenance
-- ajouter une description
-- choisir un lieu
-- choisir une priorite initiale
-- ajouter une photo
-- consulter ses propres demandes
-- voir le statut d'une demande
+Coordinates maintenance work for the organization.
 
-### Gestionnaire
+Responsibilities:
 
-Le gestionnaire organise le travail et supervise les demandes.
+- view all requests
+- filter requests
+- update priority
+- assign a technician
+- close completed requests
+- review basic dashboard metrics
 
-Fonctionnalites:
+### Technician
 
-- se connecter
-- voir toutes les demandes de son organisation
-- filtrer les demandes
-- consulter le detail d'une demande
-- modifier la priorite
-- assigner un technicien
-- changer le statut
-- fermer une demande
-- consulter un tableau de bord simple
+Handles assigned work.
 
-### Technicien
+Responsibilities:
 
-Le technicien traite les demandes qui lui sont assignees.
+- view assigned requests
+- start an intervention
+- add a work comment
+- complete an intervention
+- enter an optional cost
 
-Fonctionnalites:
+## Request Statuses
 
-- se connecter
-- voir ses demandes assignees
-- demarrer une intervention
-- ajouter un commentaire
-- terminer une intervention
-- indiquer un cout optionnel
+UML source: [docs/uml/request-state-diagram.puml](uml/request-state-diagram.puml)
 
-## 6. Statuts d'une demande
+Allowed statuses:
 
-Diagramme UML associe:
-[docs/uml/request-state-diagram.puml](uml/request-state-diagram.puml)
+1. `NOUVELLE`
+2. `ASSIGNEE`
+3. `EN_COURS`
+4. `TERMINEE`
+5. `FERMEE`
 
-Les demandes passent par les statuts suivants:
+Rules:
 
-1. Nouvelle
-2. Assignee
-3. En cours
-4. Terminee
-5. Fermee
+- a new request starts as `NOUVELLE`
+- assigning a technician moves it to `ASSIGNEE`
+- a technician can move an assigned request to `EN_COURS`
+- a technician can complete an intervention and move the request to `TERMINEE`
+- only a manager can close a request
 
-Regles principales:
+## Priorities
 
-- une demande creee commence au statut `Nouvelle`
-- une demande assignee a un technicien passe a `Assignee`
-- un technicien peut passer sa demande a `En cours`
-- un technicien peut marquer l'intervention comme `Terminee`
-- seul un gestionnaire peut fermer definitivement la demande
+Allowed priorities:
 
-## 7. Priorites
+- `BASSE`
+- `NORMALE`
+- `HAUTE`
+- `URGENTE`
 
-Priorites disponibles pour le MVP:
+Managers can update the priority after creation.
 
-- Basse
-- Normale
-- Haute
-- Urgente
+## Main Data
 
-Le gestionnaire peut modifier la priorite apres creation.
+UML source: [docs/uml/domain-class-diagram.puml](uml/domain-class-diagram.puml)
 
-## 8. Donnees principales
+Core entities:
 
-Diagramme UML associe:
-[docs/uml/domain-class-diagram.puml](uml/domain-class-diagram.puml)
+- organization
+- user
+- building
+- room
+- maintenance request
+- intervention
+- attachment
 
-### Organisation
+## Out Of Scope For v0.1
 
-- nom
-- adresse
-- plan
-- date de creation
+- billing
+- native mobile app
+- AI classification
+- preventive maintenance
+- advanced PDF exports
+- SMS notifications
+- full multilingual UI
+- equipment inventory
+- realtime chat
 
-### Utilisateur
+## Acceptance Criteria
 
-- organisation
-- nom
-- email
-- mot de passe
-- role
-- actif/inactif
+The v0.1 scope is complete when:
 
-### Batiment
-
-- organisation
-- nom
-- adresse
-
-### Local
-
-- batiment
-- nom
-- etage
-- description
-
-### DemandeMaintenance
-
-- organisation
-- local
-- creee par
-- assignee a
-- titre
-- description
-- priorite
-- statut
-- date de creation
-- date de fermeture
-
-### Intervention
-
-- demande
-- technicien
-- commentaire
-- date de debut
-- date de fin
-- cout
-
-### PieceJointe
-
-- demande
-- fichier
-- type
-- date d'ajout
-
-## 9. Fonctionnalites hors MVP
-
-Ces fonctionnalites sont importantes, mais elles seront ajoutees plus tard:
-
-- paiements Stripe
-- application mobile native
-- IA de classification
-- maintenance preventive
-- exports PDF avances
-- SMS
-- multi-langue complet
-- inventaire d'equipements avance
-- chat temps reel
-
-## 10. Critere de succes v0.1
-
-La v0.1 est reussie si:
-
-- un employe peut creer une demande
-- un gestionnaire peut la voir et l'assigner
-- un technicien peut la traiter
-- le statut peut progresser jusqu'a `Fermee`
-- l'organisation peut retrouver l'historique des demandes
+- an employee can create a request
+- a manager can assign it
+- a technician can process it
+- the request can reach `FERMEE`
+- the organization can retrieve the request history
 

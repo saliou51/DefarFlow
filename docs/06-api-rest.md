@@ -1,16 +1,15 @@
-# DefarFlow v0.1 - Contrats API REST
+# DefarFlow v0.1 - REST API
 
-## Objectif
+## Scope
 
-Ce document definit les endpoints principaux du backend Django REST Framework.
-Il servira de reference avant l'implementation.
+Initial API contract for the maintenance request workflow.
 
 ## Conventions
 
-- Prefixe API: `/api/v1`
+- API prefix: `/api/v1`
 - Format: JSON
-- Authentification: token ou session, a confirmer pendant l'implementation
-- Les exemples utilisent des UUID fictifs
+- Authentication: session or token-based auth, final choice tracked in ADR-004
+- Examples use fixed UUIDs for readability
 
 ## Authentification
 

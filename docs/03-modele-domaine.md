@@ -4,7 +4,7 @@
 
 Source PlantUML: [docs/uml/domain-class-diagram.puml](uml/domain-class-diagram.puml)
 
-Version SVG generee:
+Rendered SVG:
 [docs/uml/rendered/domain-class-diagram.svg](uml/rendered/domain-class-diagram.svg)
 
 ![Diagramme de classes du domaine](uml/rendered/domain-class-diagram.svg)

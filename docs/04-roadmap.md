@@ -1,68 +1,82 @@
-# DefarFlow - Roadmap initiale
+# DefarFlow - Roadmap
 
-## Phase 1 - Conception v0.1
+## Phase 0 - Product Definition
 
-- cahier des charges fonctionnel
-- cas d'utilisation
-- modele de domaine
-- schema de base de donnees
-- liste des endpoints API
-- maquettes simples des ecrans
-- matrice de permissions
+Status: in progress
 
-Diagrammes UML de reference:
+- functional scope
+- use cases
+- domain model
+- database schema
+- API contracts
+- permissions matrix
+- architecture decisions
+- initial backlog
+
+Reference diagrams:
 
 - [Architecture](uml/architecture.puml)
-- [Cas d'utilisation](uml/use-cases.puml)
-- [Diagramme de classes](uml/domain-class-diagram.puml)
-- [Diagramme de conception des services](uml/service-class-diagram.puml)
-- [Cycle de vie d'une demande](uml/request-state-diagram.puml)
-- [Sequence de traitement d'une demande](uml/request-sequence.puml)
+- [Use cases](uml/use-cases.puml)
+- [Domain class diagram](uml/domain-class-diagram.puml)
+- [Service design diagram](uml/service-class-diagram.puml)
+- [Request state diagram](uml/request-state-diagram.puml)
+- [Request processing sequence](uml/request-sequence.puml)
 
-## Phase 2 - Backend Django
+## Phase 1 - Backend Foundation
 
-- creer le projet Django
-- configurer Django REST Framework
-- configurer PostgreSQL
-- creer le modele utilisateur
-- creer organisations, batiments et locaux
-- creer demandes et interventions
-- ajouter permissions par role
-- ajouter tests backend
+- initialize Django project
+- configure Django REST Framework
+- configure environment settings
+- add PostgreSQL support
+- implement custom user model
+- implement organizations
+- implement buildings and rooms
+- add model tests
 
-## Phase 3 - Frontend React
+## Phase 2 - Maintenance Workflow
 
-- creer le projet React
-- pages de connexion
-- layout principal
-- liste des demandes
-- detail demande
-- formulaire de creation
-- vues gestionnaire
-- vues technicien
-- dashboard simple
+- implement maintenance request model
+- implement intervention model
+- implement attachment model
+- implement role-based permissions
+- implement request assignment
+- implement intervention start and completion
+- add API tests for the request lifecycle
 
-## Phase 4 - Produit testable
+## Phase 3 - Frontend MVP
 
-- upload de photos
-- filtres
-- responsive mobile
-- QR code par local
-- notifications email simples
-- deploiement de test
+- initialize React app
+- add authentication screens
+- add main application layout
+- add request list
+- add request detail page
+- add request creation form
+- add manager actions
+- add technician workflow
+- add dashboard summary
 
-## Phase 5 - Validation terrain
+## Phase 4 - Pilot Readiness
 
-- trouver une premiere organisation pilote
-- observer leur processus actuel
-- faire tester gratuitement pendant un mois
-- noter les blocages reels
-- ameliorer uniquement ce qui aide l'usage reel
+- improve mobile layout
+- add request filters
+- add photo upload
+- add email notifications
+- add QR code entry point for rooms
+- deploy a test environment
 
-## Phase 6 - Monétisation
+## Phase 5 - Pilot Validation
 
-- definir les limites des plans
-- ajouter Stripe
-- creer une page de facturation
-- tester un prix Starter / Pro / Business
+- onboard one pilot organization
+- observe the existing maintenance process
+- collect usage feedback
+- fix workflow blockers
+- defer features that are not required for daily use
+
+## Later
+
+- billing
+- preventive maintenance
+- exports
+- equipment inventory
+- advanced reporting
 

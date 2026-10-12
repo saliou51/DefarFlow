@@ -1,8 +1,8 @@
-# DefarFlow v0.1 - Matrice de permissions
+# DefarFlow v0.1 - Permissions
 
-## Objectif
+## Scope
 
-Ce document definit ce que chaque role peut faire dans le MVP.
+Role-based access rules for the v0.1 workflow.
 
 ## Roles
 
@@ -90,7 +90,8 @@ Le technicien ne peut pas:
 
 - Un utilisateur ne peut acceder qu'aux donnees de son organisation.
 - Une demande fermee ne peut plus etre modifiee par un employe ou un technicien.
-- Les actions sensibles doivent etre journalisees plus tard dans un audit log.
+- Sensitive actions should be moved into an audit log after the first workflow
+  is stable.
 - Les endpoints doivent toujours verifier les permissions cote backend, meme si
   le frontend masque les boutons.
 

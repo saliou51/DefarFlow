@@ -1,59 +1,59 @@
 # DefarFlow
 
-DefarFlow est une application web SaaS de gestion des demandes de maintenance et
-des interventions, pensee d'abord pour les petites et moyennes organisations.
+DefarFlow is a maintenance request management platform for organizations that
+need a simple way to report issues, assign work, track progress, and keep an
+intervention history.
 
-## Objectif
+The first release focuses on a small, usable workflow:
 
-Permettre a une organisation de:
+- create a maintenance request
+- assign it to a technician
+- track its status
+- document the intervention
+- close the request with a clear history
 
-- signaler un probleme de maintenance
-- assigner une demande a un technicien
-- suivre le statut
-- documenter l'intervention
-- conserver un historique exploitable
+## Scope
+
+Version `0.1` covers the operational core only. Billing, advanced analytics,
+native mobile apps, preventive maintenance, and AI-assisted classification are
+out of scope until the request workflow has been validated with real users.
 
 ## Documentation
 
-- [Cahier des charges v0.1](docs/01-cahier-des-charges.md)
-- [Cas d'utilisation](docs/02-cas-utilisation.md)
-- [Modele de domaine](docs/03-modele-domaine.md)
+- [Product brief](docs/00-product-brief.md)
+- [Functional scope](docs/01-cahier-des-charges.md)
+- [Use cases](docs/02-cas-utilisation.md)
+- [Domain model](docs/03-modele-domaine.md)
 - [Roadmap](docs/04-roadmap.md)
-- [Schema de base de donnees](docs/05-schema-base-donnees.md)
-- [Contrats API REST](docs/06-api-rest.md)
-- [Matrice de permissions](docs/07-permissions.md)
+- [Database schema](docs/05-schema-base-donnees.md)
+- [REST API](docs/06-api-rest.md)
+- [Permissions](docs/07-permissions.md)
+- [Backlog](docs/08-backlog.md)
+- [Architecture decisions](docs/adr)
 
-## Diagrammes UML
+## UML
 
-Les diagrammes sont ecrits en PlantUML dans [docs/uml](docs/uml).
+PlantUML sources are stored in [docs/uml](docs/uml).
 
 - [Architecture](docs/uml/architecture.puml)
-- [Cas d'utilisation](docs/uml/use-cases.puml)
-- [Diagramme de classes](docs/uml/domain-class-diagram.puml)
-- [Diagramme de conception des services](docs/uml/service-class-diagram.puml)
-- [Cycle de vie d'une demande](docs/uml/request-state-diagram.puml)
-- [Sequence de traitement d'une demande](docs/uml/request-sequence.puml)
+- [Use cases](docs/uml/use-cases.puml)
+- [Domain class diagram](docs/uml/domain-class-diagram.puml)
+- [Service design diagram](docs/uml/service-class-diagram.puml)
+- [Request state diagram](docs/uml/request-state-diagram.puml)
+- [Request processing sequence](docs/uml/request-sequence.puml)
 
-Rendus SVG:
+Rendered SVG files are stored in [docs/uml/rendered](docs/uml/rendered).
 
-- [Architecture](docs/uml/rendered/architecture.svg)
-- [Cas d'utilisation](docs/uml/rendered/use-cases.svg)
-- [Diagramme de classes](docs/uml/rendered/domain-class-diagram.svg)
-- [Diagramme de conception des services](docs/uml/rendered/service-class-diagram.svg)
-- [Cycle de vie d'une demande](docs/uml/rendered/request-state-diagram.svg)
-- [Sequence de traitement d'une demande](docs/uml/rendered/request-sequence.svg)
-
-Pour generer et verifier les diagrammes:
+To regenerate and validate the diagrams:
 
 ```bash
 npm run uml:check
 ```
 
-## Stack prevue
+## Planned Stack
 
-- Backend: Django + Django REST Framework
+- Backend: Django, Django REST Framework
 - Frontend: React
-- Base de donnees: PostgreSQL
-- Authentification: JWT ou session selon l'implementation retenue
-- Deploiement: a definir
+- Database: PostgreSQL
+- Authentication: session or token-based auth, to be finalized during backend setup
 

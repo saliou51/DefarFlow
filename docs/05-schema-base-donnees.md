@@ -1,17 +1,16 @@
 # DefarFlow v0.1 - Schema de base de donnees
 
-## Objectif
+## Scope
 
-Ce document transforme le modele de domaine en structure relationnelle pour
-PostgreSQL. Il servira de reference pour les modeles Django.
+Reference schema for the Django models and PostgreSQL migrations.
 
 ## Conventions
 
-- Les identifiants utilisent `UUID`.
-- Les dates utilisent `timestamp with time zone`.
-- Les noms de tables sont en anglais pour rester proches des conventions Django.
-- Les libelles visibles dans l'interface pourront rester en francais.
-- Toutes les tables principales ont `created_at` et `updated_at`.
+- Resource identifiers use `UUID`.
+- Dates use `timestamp with time zone`.
+- Table names use English.
+- User-facing labels can be localized independently from database names.
+- Main tables include `created_at` and `updated_at`.
 
 ## Tables
 

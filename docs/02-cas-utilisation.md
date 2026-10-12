@@ -10,7 +10,7 @@
 
 Source PlantUML: [docs/uml/use-cases.puml](uml/use-cases.puml)
 
-Version SVG generee: [docs/uml/rendered/use-cases.svg](uml/rendered/use-cases.svg)
+Rendered SVG: [docs/uml/rendered/use-cases.svg](uml/rendered/use-cases.svg)
 
 ![Diagramme de cas d'utilisation](uml/rendered/use-cases.svg)
 
