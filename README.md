@@ -19,6 +19,9 @@ Permettre a une organisation de:
 - [Cas d'utilisation](docs/02-cas-utilisation.md)
 - [Modele de domaine](docs/03-modele-domaine.md)
 - [Roadmap](docs/04-roadmap.md)
+- [Schema de base de donnees](docs/05-schema-base-donnees.md)
+- [Contrats API REST](docs/06-api-rest.md)
+- [Matrice de permissions](docs/07-permissions.md)
 
 ## Diagrammes UML
 

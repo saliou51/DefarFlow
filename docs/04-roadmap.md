@@ -8,6 +8,7 @@
 - schema de base de donnees
 - liste des endpoints API
 - maquettes simples des ecrans
+- matrice de permissions
 
 Diagrammes UML de reference:
 
